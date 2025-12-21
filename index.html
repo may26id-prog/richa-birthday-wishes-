@@ -1,54 +1,233 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Happy Birthday Richa 🎂</title>
+<title>Happy Birthday Richa</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
+*{margin:0;padding:0;box-sizing:border-box;}
 body{
-  margin:0;
-  font-family:Poppins,Arial,sans-serif;
-  background:radial-gradient(circle at top,#20002c,#000);
+  font-family:'Poppins',sans-serif;
+  background:radial-gradient(circle at top,#16002b,#000);
   color:#fff;
+  overflow-x:hidden;
+}
+
+/* CANVAS */
+canvas{
+  position:fixed;
+  inset:0;
+  z-index:0;
+}
+
+/* START SCREEN */
+.start{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.88);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+}
+.start button{
+  padding:15px 32px;
+  font-size:1.1rem;
+  border:none;
+  border-radius:30px;
+  background:#ff7cff;
+  color:#000;
+  cursor:pointer;
+  box-shadow:0 0 25px #ff7cff;
+}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
   text-align:center;
+  position:relative;
+  z-index:2;
+  padding:20px;
+}
+.hero h1{
+  font-family:'Great Vibes',cursive;
+  font-size:4.8rem;
+  color:#ffd6ff;
+  text-shadow:0 0 40px #ff7cff;
+}
+
+/* LINE */
+.message{
+  padding:90px 20px;
+  text-align:center;
+}
+.message p{
+  font-family:'Great Vibes',cursive;
+  font-size:2.4rem;
+  max-width:900px;
+  margin:auto;
+  color:#ffe9ff;
+  line-height:1.9;
+  text-shadow:0 0 25px rgba(255,255,255,0.45);
+}
+
+/* PHOTOS */
+.photo{
+  margin:80px auto;
+  max-width:320px;
+  border-radius:22px;
   overflow:hidden;
+  box-shadow:0 0 45px rgba(255,182,255,0.55);
 }
-h1{
-  margin-top:60px;
-  font-size:3rem;
-  color:#ffb6ff;
+.photo img{
+  width:100%;
+  display:block;
 }
-p{
-  font-size:1.2rem;
-  max-width:650px;
-  margin:20px auto;
-  line-height:1.6;
+
+/* POPUP */
+.popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.75);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
 }
-.cake{
-  font-size:120px;
-  animation:float 3s ease-in-out infinite;
+.popup-box{
+  background:#1b0033;
+  padding:35px;
+  border-radius:22px;
+  max-width:420px;
+  text-align:center;
+  box-shadow:0 0 40px #ff7cff;
 }
-@keyframes float{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-20px)}
+.popup-box p{
+  font-family:'Great Vibes',cursive;
+  font-size:2rem;
+  line-height:1.8;
+  color:#ffe6ff;
+}
+.popup-box button{
+  margin-top:20px;
+  padding:8px 22px;
+  border:none;
+  border-radius:20px;
+  background:#ff7cff;
+  cursor:pointer;
+}
+
+/* FOOTER */
+.footer{
+  text-align:center;
+  padding:40px 20px;
+  color:#bbb;
+  font-size:0.9rem;
 }
 </style>
 </head>
+
 <body>
 
-<h1>🎉 Happy Birthday Richa 🎉</h1>
-<div class="cake">🎂</div>
+<canvas id="fireworks"></canvas>
 
-<p>
-रिचा, तुम मुस्कान हो, तुम खास हो,<br>
-तुम्हारा होना ही किसी दिन को खूबसूरत बना देता है 💖<br>
-जन्मदिन की ढेर सारी शुभकामनाएँ ✨
-</p>
+<!-- MUSIC -->
+<audio id="bgm" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
 
-<p>
-May your smile shine brighter every year.<br>
-Wishing you love, happiness & magic always 💫
-</p>
+<!-- START -->
+<div class="start" id="start">
+  <button onclick="startMagic()">Tap to Begin Magic ✨</button>
+</div>
 
-</body> 
+<!-- HERO -->
+<section class="hero">
+  <h1>Happy Birthday Richa ✨</h1>
+</section>
+
+<!-- PHOTO 1 -->
+<div class="photo">
+  <img src="richa1.jpeg">
+</div>
+
+<!-- BEAUTIFUL LINE -->
+<section class="message">
+  <p>
+    Some souls don’t need to shine loudly,  
+    their presence alone makes the world feel warmer.  
+    <br><br>
+    Happy Birthday, Richa ✨
+  </p>
+</section>
+
+<!-- PHOTO 2 -->
+<div class="photo">
+  <img src="richa2.jpeg">
+</div>
+
+<!-- PHOTO 3 -->
+<div class="photo">
+  <img src="richa3.jpeg">
+</div>
+
+<!-- PHOTO 4 -->
+<div class="photo">
+  <img src="richa4.jpeg">
+</div>
+
+<div class="footer">
+  Made with ❤️ just for Richa
+</div>
+
+<!-- POPUP -->
+<div class="popup" id="popup">
+  <div class="popup-box">
+    <p>
+      This page was made with care,  
+      but you are the reason it feels special. 💖
+    </p>
+    <button onclick="closePopup()">Close</button>
+  </div>
+</div>
+
+<script>
+function startMagic(){
+  document.getElementById('start').style.display='none';
+  document.getElementById('bgm').play();
+  setTimeout(()=>{document.getElementById('popup').style.display='flex';},9000);
+}
+
+/* FIREWORKS */
+const c=document.getElementById('fireworks');
+const x=c.getContext('2d');
+c.width=innerWidth;c.height=innerHeight;
+let p=[];
+function r(a,b){return Math.random()*(b-a)+a;}
+setInterval(()=>{
+  let X=r(100,c.width-100),Y=r(60,c.height/2);
+  let col=['#ff4d6d','#ffd166','#4cc9f0','#c77dff','#80ffdb'];
+  for(let i=0;i<90;i++)
+    p.push({x:X,y:Y,vx:Math.cos(i)*r(1,6),vy:Math.sin(i)*r(1,6),l:r(50,100),c:col[Math.floor(Math.random()*col.length)]});
+},900);
+(function anim(){
+  x.clearRect(0,0,c.width,c.height);
+  p.forEach((e,i)=>{
+    e.x+=e.vx;e.y+=e.vy;e.l--;
+    x.fillStyle=e.c;x.fillRect(e.x,e.y,2,2);
+    if(e.l<=0)p.splice(i,1);
+  });
+  requestAnimationFrame(anim);
+})();
+function closePopup(){document.getElementById('popup').style.display='none';}
+</script>
+
+</body>
 </html>
