@@ -63,6 +63,21 @@ canvas{
   text-shadow:0 0 40px #ff7cff;
 }
 
+/* SCROLL HINT */
+.scroll-hint{
+  margin-top:25px;
+  font-size:1rem;
+  letter-spacing:2px;
+  color:#ffd6ff;
+  opacity:0.7;
+  animation:scrollPulse 1.6s infinite;
+}
+@keyframes scrollPulse{
+  0%{transform:translateY(0);opacity:0.5;}
+  50%{transform:translateY(8px);opacity:1;}
+  100%{transform:translateY(0);opacity:0.5;}
+}
+
 /* LINE */
 .message{
   padding:90px 20px;
@@ -138,27 +153,42 @@ canvas{
 
 <canvas id="fireworks"></canvas>
 
-<!-- MUSIC -->
 <audio id="bgm" loop>
   <source src="music.mp3" type="audio/mpeg">
 </audio>
 
-<!-- START -->
 <div class="start" id="start">
   <button onclick="startMagic()">Tap to Begin Magic ✨</button>
 </div>
 
-<!-- HERO -->
 <section class="hero">
   <h1>Happy Birthday Richa ✨</h1>
+
+  <p style="
+    margin-top:20px;
+    font-family:'Great Vibes',cursive;
+    font-size:2rem;
+    color:#ffe9ff;
+    text-shadow:0 0 25px rgba(255,255,255,0.45);
+    line-height:1.6;
+    max-width:900px;
+  ">
+    आज का दिन सच में बहुत खास है,<br>
+    क्योंकि आज एक बेहद प्यारी और क्यूट सी प्रिंसेस 😍 का जन्म हुआ था।<br>
+    मेरी सबसे प्यारी, क्यूट प्रिंसेस 👰 को<br>
+    जन्मदिन की ढेर सारी हार्दिक शुभकामनाएँ।<br>
+    तुम्हारी होंठों पर हमेशा मुस्कान बनी रहे<br>
+    और आंखों में कभी भी आंसू न आए,<br>
+    अगर आए तो वो सिर्फ खुशी के आंसू हों 💖✨
+  </p>
+
+  <div class="scroll-hint">
+    ↓ नीचे स्क्रॉल करें ↓
+  </div>
 </section>
 
-<!-- PHOTO 1 -->
-<div class="photo">
-  <img src="richa1.jpeg">
-</div>
+<div class="photo"><img src="richa1.jpeg"></div>
 
-<!-- BEAUTIFUL LINE -->
 <section class="message">
   <p>
     Some souls don’t need to shine loudly,  
@@ -168,26 +198,14 @@ canvas{
   </p>
 </section>
 
-<!-- PHOTO 2 -->
-<div class="photo">
-  <img src="richa2.jpeg">
-</div>
-
-<!-- PHOTO 3 -->
-<div class="photo">
-  <img src="richa3.jpeg">
-</div>
-
-<!-- PHOTO 4 -->
-<div class="photo">
-  <img src="richa4.jpeg">
-</div>
+<div class="photo"><img src="richa2.jpeg"></div>
+<div class="photo"><img src="richa3.jpeg"></div>
+<div class="photo"><img src="richa4.jpeg"></div>
 
 <div class="footer">
   Made with ❤️ just for Richa
 </div>
 
-<!-- POPUP -->
 <div class="popup" id="popup">
   <div class="popup-box">
     <p>
